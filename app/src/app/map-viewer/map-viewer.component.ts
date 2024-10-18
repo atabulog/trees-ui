@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Map, Marker} from "leaflet";
 import * as L from 'leaflet';
 
@@ -8,7 +8,8 @@ import * as L from 'leaflet';
   standalone: true,
   imports: [],
   templateUrl: './map-viewer.component.html',
-  styleUrl: './map-viewer.component.scss'
+  styleUrl: './map-viewer.component.scss',
+  encapsulation: ViewEncapsulation.None // Disable encapsulation for this component
 })
 export class MapViewerComponent implements OnInit, AfterViewInit{
   private map!: Map
