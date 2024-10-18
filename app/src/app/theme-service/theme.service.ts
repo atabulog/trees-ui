@@ -5,11 +5,22 @@ import { Injectable } from '@angular/core';
 })
 export class ThemeService {
   private currentThemeLink: HTMLLinkElement | null = null;
-
+  private darkMode: boolean = false;
   constructor() {
+    this.loadTheme('lara-dark-blue');
   }
 
-  public loadTheme(theme: string) {
+  public toggleDarkMode(): void {
+    this.darkMode = !this.darkMode;
+    if(this.darkMode) {
+      this.loadTheme('lara-dark-blue');
+    }
+    else{
+      this.loadTheme('lara-light-blue');
+    }
+  }
+
+  protected loadTheme(theme: string) {
     if (this.currentThemeLink) {
       this.currentThemeLink.remove(); // Remove previous theme
     }
